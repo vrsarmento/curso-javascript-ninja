@@ -12,7 +12,6 @@ function soma(x, y){
 var a = soma(10, 20) + 5;
 
 // Qual o valor atualizado dessa variável?
-a;
 35
 
 // Declare uma nova variável, sem valor.
@@ -32,7 +31,7 @@ function novo_valor(){
 novo_valor();
 
 // Qual o retorno da função? (Use comentários de bloco).
-/* O valor da variável é 5 */
+/* O valor da variável agora é 5 */
 
 /*
 Crie uma função com as seguintes características:
@@ -44,22 +43,23 @@ Crie uma função com as seguintes características:
 function qualquer(x, y, z){
     if(x === undefined || y === undefined || z === undefined){
         return "Preencha todos os valores corretamente!";
-    }else{
-        return x*y*z + 2;
     }
+        
+    return (x * y * z) + 2;
+
 }
 
 // Invoque a função criada acima, passando só dois números como argumento.
 qualquer(2, 3);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-//Preencha todos os valores coretamente!
+// Preencha todos os valores coretamente!
 
 // Agora invoque novamente a função criada acima, mas passando todos os três argumentos necessários.
 qualquer(1, 2, 3);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-//8
+// 8
 
 /*
 Crie uma função com as seguintes características:
@@ -71,14 +71,14 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function teste(x, y, z){
-    if(x === undefined && y === undefined && z === undefined){
-        return false;
-    }else if(y === undefined && z === undefined){
+    if(x !== undefined && y === undefined && z === undefined){
         return x;
-    }else if(z === undefined){
+    }else if(x !== undefined && y !== undefined && z === undefined){
         return x + y;
     }else if(x !== undefined && y !== undefined && z !== undefined){
         return (x + y) / z;
+    }else if(x === undefined && y === undefined && z === undefined){
+        return false;
     }else{
         return null;
     }

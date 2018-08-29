@@ -71,14 +71,14 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function teste(x, y, z){
-    if(x !== undefined && y === undefined && z === undefined){
+    if(x === undefined && y === undefined && z === undefined){
+        return false;
+    }else if(y === undefined && z === undefined){
         return x;
-    }else if(x !== undefined && y !== undefined && z === undefined){
+    }else if(z === undefined){
         return x + y;
     }else if(x !== undefined && y !== undefined && z !== undefined){
         return (x + y) / z;
-    }else if(x === undefined && y === undefined && z === undefined){
-        return false;
     }else{
         return null;
     }

@@ -113,20 +113,48 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adicionarPessoas = function(qtd){
+
+	var totalPessoas = carro.quantidadePessoas + qtd;
+	var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
+	var pluralOuSingular = quantasPessoasCabem === 1 ? 1 : 0;
+	var comp = [];
+
+	comp[0] = 'm';
+	comp[1] = 's';
+
+	if( pluralOuSingular ){
+		comp[0] = '';
+		comp[1] = '';
+	}
+
+	if( carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos ){
+		return 'O carro já está lotado!';
+	}
+
+	if( totalPessoas > carro.assentos ){
+		return 'Só cabe' + comp[0] + ' mais ' + quantasPessoasCabem + ' pessoa' + comp[1] + '!';
+	}
+
+	carro.quantidadePessoas += qtd;
+	return 'Já temos ' + carro.quantidadePessoas + ' pessoas no carro!';
 	
-	if( carro.quantidadePessoas + qtd <= carro.assentos ){
-		carro.quantidadePessoas += qtd;
-		return "Já temos " + carro.quantidadePessoas + " pessoas no carro!";
-	}else if( carro.quantidadePessoas === carro.assentos ){
+	/*
+	if( carro.quantidadePessoas === carro.assentos && carro.quantidadePessoas + qtd >= carro.assentos){
 		return "O carro já está lotado!";
-	}else if( carro.quantidadePessoas + qtd > carro.assentos ){
+	}
+	
+	if( carro.quantidadePessoas + qtd > carro.assentos ){
 		if( carro.assentos - carro.quantidadePessoas === 1){
 			return "Só cabe mais " + (carro.assentos - carro.quantidadePessoas) + " pessoa!";
 		}else{
 			return "Só cabem mais " + (carro.assentos - carro.quantidadePessoas) + " pessoas!";
 		}
 	}
+
+	carro.quantidadePessoas += qtd;
+	return "Já temos " + carro.quantidadePessoas + " pessoas no carro!";
 	
+	*/
 };
 
 /*
@@ -164,7 +192,7 @@ carro.adicionarPessoas(4); // Só cabem mais 3 pessoas!
 carro.adicionarPessoas(3); // Já temos 5 pessoas no carro!
 
 // Tire 4 pessoas do carro.
-carro.quantidadePessoas = 1;
+carro.adicionarPessoas(-4); // Já temos 1 pessoas no carro!
 
 // Adicione 10 pessoas no carro.
 carro.adicionarPessoas(10); // Só cabem mais 4 pessoas!

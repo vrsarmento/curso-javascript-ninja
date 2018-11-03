@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Challenge 29 - Resolução do Instrutor</title>
+</head>
+<body>
+	
+	<div class="container">
+		<header class="border_separation">
+			<h1>Empresa:  
+				<span data-js="company_name"></span>
+				<span class="text-muted lead">[ Telefone: 
+						<span data-js="company_phone"></span> ]
+				</span>
+			</h1>
+		</header>
+
+		<div class="alert alert-danger" role="alert" data-js="alert"></div>
+
+		<h2>Cadastrar</h2>
+		<form data-js="form" class="border_separation">
+			<div class="form-group">
+				<label for="car_image">Imagem (URL)*:</label>
+				<input type="text" class="form-control" id="car_image" data-js="car_image" data-required="1">
+			</div>
+			<div class="form-group">
+				<label for="car_model">Marca / Modelo*:</label>
+				<input type="text" class="form-control" id="car_model" data-js="car_model" data-required="1">
+			</div>
+			<div class="form-group">
+				<label for="car_year">Ano*:</label>
+				<input type="text" class="form-control" id="car_year" data-js="car_year" data-required="1" data-number="1">
+			</div>
+			<div class="form-group">
+				<label for="car_license">Placa*:</label>
+				<input type="text" class="form-control" id="car_license" data-js="car_license" data-required="1">
+			</div>
+			<div class="form-group">
+				<label for="car_color">Cor*:</label>
+				<input type="text" class="form-control" id="car_color" data-js="car_color" data-required="1">
+			</div>
+
+			<button type="submit" class="btn btn-primary" data-js="submit">Cadastrar</button>
+		</form>
+
+		<h2>Lista de Carros</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Imagem</th>
+					<th scope="col">Marca / Modelo</th>
+					<th scope="col">Ano</th>
+					<th scope="col">Placa</th>
+					<th scope="col">Cor</th>
+				</tr>
+			</thead>
+			<tbody data-js="table_body">
+				
+			</tbody>
+		</table>
+
+	</div>
+
+	<script src="js/dom.js"></script>
+	<script src="js/challenge-29.js"></script>
+</body>
+</html>

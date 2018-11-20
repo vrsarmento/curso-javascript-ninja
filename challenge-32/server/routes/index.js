@@ -13,9 +13,14 @@ router.post('/', function(req, res) {
     image: req.body.image,
     brandModel: req.body.brandModel,
     year: req.body.year,
-    plate: req.body.plate,
+    licensePlate: req.body.licensePlate,
     color: req.body.color 
   });
+  res.json({ message: 'success' });
+});
+
+router.delete('/', function(req, res) {
+  data.splice(req.body.indexToDelete, 1);
   res.json({ message: 'success' });
 });
 
